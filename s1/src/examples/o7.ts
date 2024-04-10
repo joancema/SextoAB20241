@@ -1,1 +1,4 @@
-export const prueba=0
+export const prueba= {
+    nombre: 'prueba',
+    edad: 10
+}
