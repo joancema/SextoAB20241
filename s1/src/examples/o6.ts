@@ -5,11 +5,12 @@ export interface IPost {
     body:   string;
 }
 export async function fetchData<Type>(url: string): Promise<Type> {
-    try {
-        const response = await fetch(url);
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error;
-    }
+    return  fetch(url).then( data=> data.json() ) //.then( data => data as Type)
+    // try {
+    //     const response = await fetch(url);
+    //     return response.json();
+    // } catch (error) {
+    //     console.error('Error fetching data:', error);
+    //     throw error;
+    // }
 }
