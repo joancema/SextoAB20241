@@ -23,20 +23,20 @@
 //     console.log(data[0].title);
 // })()
 // 7 import export callback, promises and async/await
-import { students, IStudent } from './examples/o7'
+// import { students, IStudent } from './examples/o7'
 
-function findStudentById(id: number, callback: (err: Error| undefined  , student: IStudent | undefined) => void) {
-    const student = students.find((s) => s.id === id);
-    if (!student) {
-        console.log('Student not found');
-        return callback(new Error('Student not found'), undefined)
-    }
-    callback(undefined,student);
-}
-findStudentById(1, (err, student) => {
-    if (err) {
-        console.log(err.message);
-        return;
-    }
-    console.log(student);
-})
+// function findStudentById(id: number, callback: (err: Error| undefined  , student: IStudent | undefined) => void) {
+//     const student = students.find((s) => s.id === id);
+//     if (!student) {
+//         console.log('Student not found');
+//         return callback(new Error('Student not found'), undefined)
+//     }
+//     callback(undefined,student);
+// }
+// findStudentById(1, (err, student) => {
+//     if (err) {
+//         console.log(err.message);
+//         return;
+//     }
+//     console.log(student);
+// })
