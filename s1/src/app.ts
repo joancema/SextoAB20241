@@ -15,7 +15,7 @@
 // import operation from './examples/o5'
 // operation(1, 2, (num1, num2) => num1 + num2, (result) => console.log(result))
 // 6 import export class connect HTTP client
-// import { fetchData, IPost  } from './examples/o6'
+import { fetchData, IPost  } from './examples/o6'
 // fetchData<IPost[]>('https://jsonplaceholder.typicode.com/posts')
 // .then((data:IPost[]) => console.log(data[0].title));
 // (async ()=>{
@@ -23,19 +23,19 @@
 //     console.log(data[0].title);
 // })()
 // 7 import export callback, promises and async/await
-import { students, IStudent } from './examples/o7'
+// import { students, IStudent } from './examples/o7'
 
-function findStudentById(id: number, callback: (err: Error| undefined  , student: IStudent | undefined) => void) {
-    const student = students.find((s) => s.id === id);
-    if (!student) {
-        return callback(new Error('Student not found'), undefined)
-    }
-    callback(undefined,student);
-}
-findStudentById(11, (err, student) => {
-    if (err) {
-        console.log(err.message);
-        return;
-    }
-    console.log(student);
-})
+// function findStudentById(id: number, callback: (err: Error| undefined  , student: IStudent | undefined) => void) {
+//     const student = students.find((s) => s.id === id);
+//     if (!student) {
+//         return callback(new Error('Student not found'), undefined)
+//     }
+//     callback(undefined,student);
+// }
+// findStudentById(11, (err, student) => {
+//     if (err) {
+//         console.log(err.message);
+//         return;
+//     }
+//     console.log(student);
+// })
