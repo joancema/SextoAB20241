@@ -117,7 +117,7 @@ async function queryMongo(){
   // console.log(respuestas);
 }
 
-
+/// el main
 (async ()=>{
     try{
       await MongoDatabase.connect({
