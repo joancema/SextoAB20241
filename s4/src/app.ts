@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import express, { Response} from 'express'
 
+// ejemplo de tipado de request y response
+
 
 const prisma = new PrismaClient()
 const app = express()
