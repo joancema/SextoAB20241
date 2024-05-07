@@ -20,4 +20,15 @@ router.get('/:id',(req,res)=>{
     .catch(err => res.json(err))
 })
 
+router.post('/', async (req, res) => {
+    const { nombre } = req.body
+    const ciudadanoCreated= await prisma.ciudadano.create({
+        data: {
+            nombre,
+            }
+        })
+    res.json(ciudadanoCreated)
+})
+
+
 export default router;

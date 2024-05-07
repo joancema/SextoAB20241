@@ -10,5 +10,14 @@ router.get('/', (req, res) => {
     .then(preguntas => res.json(preguntas))
     .catch(err => res.json(err))
 })
+router.post('/', async (req, res) => {
+    const { texto } = req.body
+    const preguntaCreated= await prisma.pregunta.create({
+        data: {
+            texto
+            }
+        })
+    res.json(preguntaCreated)
+})
 
 export default router;
