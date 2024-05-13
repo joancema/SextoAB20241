@@ -1,5 +1,7 @@
 import { Router, Request, Response } from 'express';
+import { AuthMiddleware } from '../middlewares/auth';
 import { PrismaClient } from '@prisma/client';
+
 
 const router = Router();
 
@@ -29,7 +31,7 @@ router.get('/:id', (req: Request, res: Response) => {
 });
 
 // POST /ciudadano
-router.post('/', (req: Request, res: Response) => {
+router.post('/',[ AuthMiddleware.validateJWT ] , (req: Request, res: Response) => {
     // Logic to create a new ciudadano in the database
     // using the data from the request body
     // and send the response

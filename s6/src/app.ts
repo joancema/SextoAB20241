@@ -1,5 +1,6 @@
-import {ciudadanoRouter } from './routes'
+import {ciudadanoRouter, usuarioRouter } from './routes'
 import server from 'express'
+import path from 'path'
 
 // Path: s6/src/app.ts
 
@@ -7,7 +8,11 @@ import server from 'express'
 const app = server();
 
 app.use(server.json());
+app.use( server.urlencoded({ extended: true }) ); // x-www-form-urlencoded
+
+app.use('/joancema', server.static( path.join(__dirname,`../public`) ) );
 app.use('/ciudadano', ciudadanoRouter);
+app.use('/usuario', usuarioRouter);
 
 // Start the Express server
 app.listen(3000, () => {

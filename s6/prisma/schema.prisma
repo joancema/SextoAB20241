@@ -36,3 +36,10 @@ model Respuesta {
   preguntaId  Int
   respuesta Boolean  @default(true)
 }
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  correo    String?
+  nombre    String?
+  clave    String?
+}
