@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { TodoRoutes } from './todos/routes';
+import { CiudadanoRoutes } from './ciudadanos/routes';
 
 
 
@@ -12,11 +12,8 @@ export class AppRoutes {
 
     const router = Router();
 
-    router.use('/api/todos', TodoRoutes.routes );
+    router.use('/api/ciudadanos', CiudadanoRoutes.routes );
     
-
-
-
     return router;
   }
 
