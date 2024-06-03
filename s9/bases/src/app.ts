@@ -42,7 +42,7 @@ const makePerson = buildMakeStudent( {getAge, getUUID} );
 
 const obj = { name: 'John', address:'Manta', birthdate: '1900-11-08' };
 const john = makePerson( obj );
-// console.log({...john});
+console.log({...john});
 
 //#endregion
 //#region segundo ejemplo
