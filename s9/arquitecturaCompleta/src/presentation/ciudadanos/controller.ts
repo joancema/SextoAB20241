@@ -13,7 +13,6 @@ export class CiudadanosController {
 
 
   public getCiudadanos = ( req: Request, res: Response ) => {
-
     new GetCiudadanos( this.ciudadanoRepository )
       .execute()
       .then( todos => res.json( todos ) )

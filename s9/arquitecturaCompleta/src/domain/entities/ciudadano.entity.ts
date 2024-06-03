@@ -18,13 +18,13 @@ export class CiudadanoEntity {
   
       let newNombre;
       if ( nombre ) {
-        newNombre = nombre.upperCase();
+        newNombre = nombre.toUpperCase();
         if (  newNombre !== nombre  ) {
           throw 'Nombre must be uppercase'
         }
       }
-  
       return new CiudadanoEntity(id, nombre)
+
     }
   
   }
