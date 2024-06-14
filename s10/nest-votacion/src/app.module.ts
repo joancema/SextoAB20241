@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CiudadanosModule } from './ciudadanos/ciudadanos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PreguntaModule } from './pregunta/pregunta.module';
+import { RespuestaModule } from './respuesta/respuesta.module';
 
 @Module({
   imports: [CiudadanosModule, 
@@ -15,7 +17,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'clases',
       autoLoadEntities: true,
       synchronize: true,
-    }),
+    }), PreguntaModule, RespuestaModule,
 
   ],
   exports: [],

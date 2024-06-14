@@ -1,26 +1,22 @@
 import { Respuesta } from "src/respuesta/entities/respuesta.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({ name: 'ciudadanos' })
-export class Ciudadano {
+@Entity({ name: 'preguntas' })
+export class Pregunta {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column('text', {
-        unique: false,
+        unique: true,
     })
-    cedula: string;
-
-    @Column('text', {
-        unique: false,
-    })
-    nombre: string;
+    texto: string;
 
     @OneToMany(
         () => Respuesta,
-        ( respuesta ) => respuesta.ciudadano,
+        ( respuesta ) => respuesta.pregunta,
         { cascade:true }
     )
     respuestas?: Respuesta[]
 }
+
 
