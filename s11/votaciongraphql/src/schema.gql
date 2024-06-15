@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Ciudadano {
+  id: ID!
+  cedula: String!
+  nombre: String
+}
+
+type Query {
+  ciudadanos: [Ciudadano!]!
+  ciudadano(id: ID!): Ciudadano!
+}
+
+type Mutation {
+  createCiudadano(createCiudadanoInput: CreateCiudadanoInput!): Ciudadano!
+  updateCiudadano(updateCiudadanoInput: UpdateCiudadanoInput!): Ciudadano!
+  removeCiudadano(id: ID!): Ciudadano!
+}
+
+input CreateCiudadanoInput {
+  cedula: String!
+  nombre: String
+}
+
+input UpdateCiudadanoInput {
+  cedula: String
+  nombre: String
+  id: ID!
+}
