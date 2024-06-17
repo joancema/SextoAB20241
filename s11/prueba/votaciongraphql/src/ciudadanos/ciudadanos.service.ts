@@ -36,10 +36,12 @@ export class CiudadanosService {
 
   async remove(id: string): Promise<Ciudadano> {
     const ciudadano= await this.ciudadanoRepository.findOneBy({id});
+    console.log(ciudadano)
     if (!ciudadano) {
       throw new Error(`Ciudadano con id ${id} no encontrado`);
     }
     await this.ciudadanoRepository.remove(ciudadano);
-    return ciudadano;
+    console.log(ciudadano)
+    return {...ciudadano, id};
   }
 }
