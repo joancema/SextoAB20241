@@ -8,6 +8,8 @@ import { join } from 'path';
 import { CiudadanosModule } from './ciudadanos/ciudadanos.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PreguntasModule } from './preguntas/preguntas.module';
+import { RespuestasModule } from './respuestas/respuestas.module';
 
 @Module({
   imports: [
@@ -31,7 +33,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
       autoLoadEntities: true
     }),
-    CiudadanosModule
+    CiudadanosModule,
+    PreguntasModule,
+    RespuestasModule
   ],
   controllers: [],
   providers: [],
