@@ -19,7 +19,7 @@ export class PreguntasResolver {
   }
 
   @Query(() => Pregunta, { name: 'pregunta' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => String }) id: string) {
     return this.preguntasService.findOne(id);
   }
 
@@ -29,7 +29,7 @@ export class PreguntasResolver {
   }
 
   @Mutation(() => Pregunta)
-  removePregunta(@Args('id', { type: () => Int }) id: number) {
+  removePregunta(@Args('id', { type: () => String }) id: string) {
     return this.preguntasService.remove(id);
   }
 }

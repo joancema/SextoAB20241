@@ -1,5 +1,6 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Respuesta } from 'src/respuestas/entities/respuesta.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity({name: 'ciudadanos'})
@@ -16,5 +17,12 @@ export class Ciudadano {
   @Column({nullable: true})
   @Field( () => String, {nullable: true} )
   nombre:string;
+
+  @OneToMany(
+    () => Respuesta,
+    ( respuesta ) => respuesta.ciudadano,
+    { cascade:true }
+)
+respuestas?: Respuesta[]
   
 }

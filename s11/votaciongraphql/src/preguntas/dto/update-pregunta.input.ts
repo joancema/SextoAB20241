@@ -1,8 +1,11 @@
+import { IsUUID } from 'class-validator';
 import { CreatePreguntaInput } from './create-pregunta.input';
-import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
+import { InputType, Field, Int, PartialType, ID } from '@nestjs/graphql';
 
 @InputType()
 export class UpdatePreguntaInput extends PartialType(CreatePreguntaInput) {
-  @Field(() => Int)
-  id: number;
+
+  @Field(() => ID)
+  @IsUUID()
+  id: string;
 }
