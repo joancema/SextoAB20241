@@ -1,26 +1,46 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCiudadanoInput } from './dto/create-ciudadano.input';
 import { UpdateCiudadanoInput } from './dto/update-ciudadano.input';
+import { Repository } from 'typeorm';
+import { Ciudadano } from './entities/ciudadano.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class CiudadanoService {
-  create(createCiudadanoInput: CreateCiudadanoInput) {
-    return 'This action adds a new ciudadano';
+  constructor(
+    @InjectRepository(Ciudadano)
+    private readonly ciudadanoRepository: Repository<Ciudadano>,
+  ) {}
+  async create(createCiudadanoInput: CreateCiudadanoInput): Promise<Ciudadano> {
+    const created = this.ciudadanoRepository.create(createCiudadanoInput);
+    return await this.ciudadanoRepository.save(created);
   }
 
-  findAll() {
-    return [];
+  async findAll(): Promise<Ciudadano[]> {
+    return await  this.ciudadanoRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} ciudadano`;
+  async findOne(id: string): Promise<Ciudadano> {
+    // return await this.ciudadanoRepository.findOneBy({id});
+    return await this.ciudadanoRepository.findOne({where:{id}});
   }
 
-  update(id: number, updateCiudadanoInput: UpdateCiudadanoInput) {
-    return `This action updates a #${id} ciudadano`;
+  async update(id: string, updateCiudadanoInput: UpdateCiudadanoInput)
+  : Promise<Ciudadano>{
+    const updated = await this.ciudadanoRepository.preload(updateCiudadanoInput);
+    if (!updated){
+      throw new Error("Ciudadano not found");
+    }
+    return await this.ciudadanoRepository.save(updated);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} ciudadano`;
+  async remove(id: string)
+  : Promise<Ciudadano>{
+    const removed = await this.findOne(id);
+    if (!removed){
+      throw new Error("Ciudadano not found");
+    }
+    await this.ciudadanoRepository.delete(id);
+    return removed;
   }
 }

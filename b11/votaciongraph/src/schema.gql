@@ -3,27 +3,29 @@
 # ------------------------------------------------------
 
 type Ciudadano {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  id: ID!
+  cedula: String!
+  nombre: String!
 }
 
 type Query {
-  ciudadano(id: Int!): Ciudadano!
+  ciudadanos: [Ciudadano!]!
+  ciudadano(id: ID!): Ciudadano!
 }
 
 type Mutation {
   createCiudadano(createCiudadanoInput: CreateCiudadanoInput!): Ciudadano!
   updateCiudadano(updateCiudadanoInput: UpdateCiudadanoInput!): Ciudadano!
-  removeCiudadano(id: Int!): Ciudadano!
+  removeCiudadano(id: String!): Ciudadano!
 }
 
 input CreateCiudadanoInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  cedula: String!
+  nombre: String
 }
 
 input UpdateCiudadanoInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  cedula: String
+  nombre: String
+  id: String!
 }
